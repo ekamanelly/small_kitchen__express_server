@@ -1,4 +1,4 @@
-module.exports.adaptRequest = (req = {}) => {
+module.exports.prepareRequest = (req = {}) => {
   return {
     path: req.path,
     method: req.method,

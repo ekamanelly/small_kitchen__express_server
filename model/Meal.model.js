@@ -16,6 +16,7 @@ const foodSchema = mongoose.Schema({
   quantity: {
     type: String,
   },
+  photo: { type: String, default: "" },
 });
 
 module.exports.Meal = mongoose.model("meal", foodSchema);
