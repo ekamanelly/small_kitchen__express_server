@@ -18,4 +18,4 @@ const foodSchema = mongoose.Schema({
   },
 });
 
-module.exports.eal = mongoose.model("meal", foodSchema);
+module.exports.Meal = mongoose.model("meal", foodSchema);

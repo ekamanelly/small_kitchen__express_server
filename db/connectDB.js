@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { logger } = require("../logger/logger");
 
 const db = () => {
   const db2 =
@@ -11,25 +12,8 @@ const db = () => {
   });
   var connection = mongoose.connection;
   connection.on("connected", function () {
-    console.log("db connected db2");
+    logger.info("db connected db2");
   });
-  // mongoose
-  //   .connect(db1, {
-  //     useNewUrlParser: true,
-  //     useUnifiedTopology: true,
-  //     useCreateIndex: true,
-  //   })
-  //   .then((conn) => {
-  //     console.log("Database Connected");
-  //   })
-  //   .catch((error) => {
-  //     console.log("Error " + error.message);
-  //   });
-  // mongoose.createConnection(db2, {
-  //   useNewUrlParser: true,
-  //   useUnifiedTopology: true,
-  //   useCreateIndex: true,
-  // });
 };
 
 module.exports.db = db;
