@@ -4,18 +4,19 @@ const methods = require("../methods/baseMethods");
 
 const { prepareRequest } = require("../helper/preparetRequest");
 const { logger } = require("../logger/logger");
-const { authController } = require("../controller/user.controller");
-const { validateUser } = require("../validators/user.validate");
-const { User } = require("../model/User.model");
+const { validateMeal } = require("../validators/meal.validate");
+const { generateRandomString } = require("../helper/generateRandomString");
 const { Meal } = require("../model/Meal.model");
-const handle = authController({
-  validate: validateUser,
+const { mealController } = require("../controller/meal.controller");
+const handle = mealController({
+  utilities: { validateMeal, generateRandomString },
   methods,
-  models: { User, Meal },
+  models: { Meal },
 });
+generateRandomString;
 async function Controller(req, res) {
   try {
-    logger.info("called");
+    logger.info("meal route");
     const httpRequest = prepareRequest(req);
     const { headers, statusCode, data } = await handle(httpRequest);
     return res.set(headers).status(statusCode).json(data);
@@ -24,6 +25,6 @@ async function Controller(req, res) {
     return res.status(500).end();
   }
 }
-mealRoute.all("/user", Controller);
-mealRoute.get("/user/:username", Controller);
+mealRoute.all("/meal", Controller);
+mealRoute.get("/meal/:trackId", Controller);
 module.exports.mealRoute = mealRoute;

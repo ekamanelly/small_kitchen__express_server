@@ -1,13 +1,17 @@
 const mongoose = require("mongoose");
 
 const foodSchema = mongoose.Schema({
-  name: {
+  mealName: {
+    type: String,
+    required: true,
+  },
+  username: {
     type: String,
     required: true,
   },
   origin: {
     type: String,
-    required: true,
+    // required: true,
   },
   price: {
     type: Number,
@@ -15,6 +19,10 @@ const foodSchema = mongoose.Schema({
   },
   quantity: {
     type: String,
+  },
+  trackId: {
+    type: String,
+    default: 0,
   },
   photo: { type: String, default: "" },
 });
