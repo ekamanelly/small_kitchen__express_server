@@ -17,5 +17,5 @@ app.use(mealRoute);
 
 app.listen(PORT, async () => {
   logger.info(`App Connected at port ${PORT}`);
-  db();
+  db(process.env.dbString);
 });
