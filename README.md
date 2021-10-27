@@ -2,7 +2,7 @@
 
 > ## 👀 Overview
 >
-> This is a simple demonstration of dependency invasion with uncle Bob techniques. His suggestion removed the hassles of code testing and scaling as dependency should be injected not imported, you can catch an injection example [_here_](routes/user.route). Injection makes it really easy to stub functions when writing test.
+> This is a simple demonstration of dependency invasion with uncle Bob techniques. His suggestion removed the hassles of code testing and scaling as dependency should be injected not imported, you can catch an injection example [_here_](routes/user.route.js). Injection makes it really easy to stub functions when writing test.
 
 I have made:
 
@@ -15,6 +15,6 @@ I have made:
 > ## 🔧 Setup
 
 - clone the repo
-- add a .env and with a dbString
+- add a .env and with a MongoDB connection string as dbString
 - run npm install to get npm package
 - run npm run dev
